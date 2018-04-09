@@ -2,7 +2,6 @@ package com.example.dilan.openweather.flow.weather_today
 
 import com.example.dilan.openweather.Apikey
 import com.example.dilan.openweather.Base.BasePresenterImpl
-import com.example.dilan.openweather.Constants
 import com.example.dilan.openweather.network.ApiManager
 import com.example.dilan.openweather.network.GeneralErrorHandler
 import rx.functions.Action1
@@ -15,7 +14,7 @@ class WeatherPresenter : BasePresenterImpl<WeatherContract.View>(), WeatherContr
     override fun loadListWeather() {
         ApiManager.loadListWeather(getFilters())
                 .doOnError({ mView?.showMessage(it.toString()) })
-                .subscribe(Action1 { mView?.showListWeather(it)},
+                .subscribe(Action1 { mView?.showListWeather(it) },
                         GeneralErrorHandler(mView, true, { throwable, errorBody, isNetwork -> mView?.showError(throwable.message) }))
 
     }
@@ -32,7 +31,7 @@ class WeatherPresenter : BasePresenterImpl<WeatherContract.View>(), WeatherContr
         val parameters = HashMap<String, String>()
         parameters.put("APPID", Apikey.API_KEY)
         parameters.put("q", "Bishkek")
-        parameters.put("units","metric")
+        parameters.put("units", "metric")
         return parameters
     }
 }
