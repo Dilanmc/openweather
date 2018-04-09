@@ -1,2 +1,2 @@
 # openweather
-example 
+sample
