@@ -7,9 +7,6 @@ import com.example.dilan.openweather.model.WeatherModel
 import com.example.dilan.openweather.ui.Base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_weather_detail.*
 
-/**
- * Created by dilan on 4/9/18.
- */
 class WeatherDayFragment : BaseFragment<WeatherDayContract.View, WeatherDayPresenter>(), WeatherDayContract.View {
     companion object {
         fun newInstance(): WeatherDayFragment {

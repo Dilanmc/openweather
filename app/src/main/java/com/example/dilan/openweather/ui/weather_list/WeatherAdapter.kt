@@ -32,9 +32,9 @@ class WeatherAdapter(private val weathers: MutableList<WeatherModel>) : Recycler
         @SuppressLint("SetTextI18n")
         fun bindData(weatherModel: WeatherModel) {
             with(weatherModel) {
-                containerView.date.text = weatherModel.dt_txt
-                containerView.tempMax.text = String.format("%.2f", weatherModel.main.temp_max) + " ℃"
-                containerView.tempMin.text = String.format("%.2f", weatherModel.main.temp_min) + " ℃"
+                containerView.date.text = weatherModel.dtTxt
+                containerView.tempMax.text = String.format("%.2f", weatherModel.main.tempMax) + " ℃"
+                containerView.tempMin.text = String.format("%.2f", weatherModel.main.tempMin) + " ℃"
                 containerView.weather.text = weatherModel.weather[0].description
                 getIcon(weatherModel.weather[0].description, containerView.icon_weather)
             }

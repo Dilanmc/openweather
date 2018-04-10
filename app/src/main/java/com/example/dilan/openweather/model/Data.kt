@@ -1,6 +1,5 @@
 package com.example.dilan.openweather.model
 
-/**
- * Created by dilan on 4/9/18.
- */
-class Data(val temp: Double, val  temp_max: Double, val  temp_min: Double)
+import com.squareup.moshi.Json
+
+class Data(val temp: Double, @Json(name = "temp_max") val tempMax: Double,@Json(name = "temp_min") val  tempMin: Double)

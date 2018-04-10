@@ -1,3 +1,5 @@
 package com.example.dilan.openweather.model
 
-class WeatherModel(val id: Int, val name: String, val dt_txt: String, val main: Data, val weather: List<WeatherDetail>)
+import com.squareup.moshi.Json
+
+class WeatherModel(val id: Int, val name: String, @Json(name = "dt_txt") val dtTxt: String, val main: Data, val weather: List<WeatherDetail>)
