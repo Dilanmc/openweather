@@ -12,6 +12,12 @@ import java.util.*
 
 
 class WeatherListFragment : BaseFragment<WeatherListContract.View, WeatherListPresenter>(), WeatherListContract.View {
+    companion object {
+        fun newInstance(): WeatherListFragment {
+            return WeatherListFragment()
+        }
+    }
+
     override var mPresenter: WeatherListPresenter = WeatherListPresenter()
     private var mAdapter: WeatherAdapter? = null
 
@@ -28,11 +34,7 @@ class WeatherListFragment : BaseFragment<WeatherListContract.View, WeatherListPr
         hideProgress()
     }
 
-    companion object {
-        fun newInstance(): WeatherListFragment {
-            return WeatherListFragment()
-        }
-    }
+
 
     override fun getLayout(): Int {
         return R.layout.fragment_weather_list

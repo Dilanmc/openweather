@@ -1,12 +1,10 @@
-package com.example.dilan.openweather.utils
+package com.example.dilan.openweather
 
 import android.support.design.widget.TabLayout
 import android.view.View
 import android.widget.ImageView
-import com.example.dilan.openweather.Apikey
-import com.example.dilan.openweather.R
 import com.squareup.moshi.Moshi
-import java.util.*
+import java.util.HashMap
 
 
 inline fun <reified T> Moshi.fromJson(json: String): T = this.adapter(T::class.java).fromJson(json)

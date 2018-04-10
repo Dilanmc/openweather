@@ -12,13 +12,12 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
 object ApiManager {
-    private lateinit var endpointApi: EndpointApi
+    private lateinit var setviceApi: ServiceApi
 
     init {
         val retrofit = initRetrofit()
         init(retrofit)
     }
-
 
     private fun initRetrofit(): Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor()
@@ -52,16 +51,16 @@ object ApiManager {
 
 
     private fun init(retrofit: Retrofit) {
-        endpointApi = retrofit.create(EndpointApi::class.java)
+        setviceApi = retrofit.create(ServiceApi::class.java)
     }
 
     fun loadWeather(parameters: Map<String, String>) =
-            endpointApi.getWeather(parameters)
+            setviceApi.getWeather(parameters)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())!!
 
     fun loadListWeather(parameters: Map<String, String>) =
-            endpointApi.getListWeather(parameters)
+            setviceApi.getListWeather(parameters)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())!!
 

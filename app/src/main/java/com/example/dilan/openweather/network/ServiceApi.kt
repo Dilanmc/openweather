@@ -9,7 +9,7 @@ import rx.Observable
 /**
  * Created by dilan on 4/9/18.
  */
-interface EndpointApi {
+interface ServiceApi {
 
     @GET("weather")
     fun getWeather(@QueryMap parameters: Map<String, String>): Observable<WeatherModel>

@@ -1,6 +1,6 @@
 package com.example.dilan.openweather.network
 
-import com.example.dilan.openweather.utils.fromJson
+import com.example.dilan.openweather.fromJson
 import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
 import retrofit2.Response

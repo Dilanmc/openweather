@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dilan.openweather.R
-import com.example.dilan.openweather.utils.LayoutContainer
-import com.example.dilan.openweather.utils.getIcon
+import com.example.dilan.openweather.LayoutContainer
+import com.example.dilan.openweather.getIcon
 import com.example.dilan.openweather.model.WeatherModel
 import kotlinx.android.synthetic.main.item_weather.view.*
 

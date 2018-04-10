@@ -1,4 +1,4 @@
-package com.example.dilan.openweather.utils
+package com.example.dilan.openweather.ui
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

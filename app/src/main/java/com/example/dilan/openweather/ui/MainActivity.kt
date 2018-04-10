@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import com.example.dilan.openweather.ui.Base.BaseActivity
 import com.example.dilan.openweather.R
-import com.example.dilan.openweather.utils.PagerAdapter
 import com.example.dilan.openweather.utils.addTabs
 import com.example.dilan.openweather.ui.weather_day.WeatherDayFragment
 import com.example.dilan.openweather.ui.weather_list.WeatherListFragment
