@@ -11,8 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:tabIndicatorColor="@android:color/black"
-        app:tabMode="fixed"/>
+        android:background="?attr/colorPrimary"
+        app:tabIndicatorColor="#f3f3d3"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@android:color/white" />
 
 
     <android.support.v4.view.ViewPager
@@ -22,7 +25,7 @@
         android:layout_marginTop="48dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintTop_toBottomOf="@+id/tabs"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>

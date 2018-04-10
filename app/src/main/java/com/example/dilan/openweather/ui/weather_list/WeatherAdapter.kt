@@ -6,9 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.dilan.openweather.R
-import com.example.dilan.openweather.LayoutContainer
-import com.example.dilan.openweather.getIcon
+import com.example.dilan.openweather.*
 import com.example.dilan.openweather.model.WeatherModel
 import kotlinx.android.synthetic.main.item_weather.view.*
 
@@ -32,7 +30,7 @@ class WeatherAdapter(private val weathers: MutableList<WeatherModel>) : Recycler
         @SuppressLint("SetTextI18n")
         fun bindData(weatherModel: WeatherModel) {
             with(weatherModel) {
-                containerView.date.text = weatherModel.dtTxt
+                containerView.date.text = weatherModel.dtTxt.formatDate()
                 containerView.tempMax.text = String.format("%.2f", weatherModel.main.tempMax) + " ℃"
                 containerView.tempMin.text = String.format("%.2f", weatherModel.main.tempMin) + " ℃"
                 containerView.weather.text = weatherModel.weather[0].description

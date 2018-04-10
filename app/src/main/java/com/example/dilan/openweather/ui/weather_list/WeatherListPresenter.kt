@@ -1,7 +1,7 @@
 package com.example.dilan.openweather.ui.weather_list
 
+import com.example.dilan.openweather.getFilters
 import com.example.dilan.openweather.ui.Base.BasePresenterImpl
-import com.example.dilan.openweather.utils.getFilters
 import com.example.dilan.openweather.network.ApiManager
 import com.example.dilan.openweather.network.GeneralErrorHandler
 import rx.functions.Action1

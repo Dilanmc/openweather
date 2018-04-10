@@ -5,6 +5,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
 import retrofit2.Response
 import java.io.IOException
+import java.util.*
 
 /**
  * Created by dilan on 4/9/18.
@@ -29,5 +30,7 @@ data class ErrorBody(val code: Int, @Json(name = "error") private val message: S
             }
         }
     }
+
+
 }
 
