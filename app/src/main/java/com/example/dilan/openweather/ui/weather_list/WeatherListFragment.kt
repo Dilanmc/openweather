@@ -1,45 +1,49 @@
-package com.example.dilan.openweather.flow.weather_today
+package com.example.dilan.openweather.ui.weather_list
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.example.dilan.openweather.Base.BaseActivity
+import com.example.dilan.openweather.ui.Base.BaseFragment
 import com.example.dilan.openweather.R
 import com.example.dilan.openweather.model.WeatherList
 import com.example.dilan.openweather.model.WeatherModel
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_weather_list.*
 import java.util.*
 
-class MainActivity : BaseActivity<WeatherContract.View, WeatherPresenter>(), WeatherContract.View {
+
+class WeatherListFragment : BaseFragment<WeatherListContract.View, WeatherListPresenter>(), WeatherListContract.View {
+    override var mPresenter: WeatherListPresenter = WeatherListPresenter()
+    private var mAdapter: WeatherAdapter? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mPresenter.loadListWeather()
+        setUpRecyclerView()
+        showProgress()
+    }
+
     override fun showListWeather(list: WeatherList) {
         mAdapter?.addWeather(list.list)
         mAdapter?.notifyDataSetChanged()
         hideProgress()
     }
 
-
-    override var mPresenter: WeatherPresenter = WeatherPresenter()
-    private var mAdapter: WeatherAdapter? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        showProgress()
-        setUpRecyclerView()
-        mPresenter.loadListWeather()
-
+    companion object {
+        fun newInstance(): WeatherListFragment {
+            return WeatherListFragment()
+        }
     }
+
+    override fun getLayout(): Int {
+        return R.layout.fragment_weather_list
+    }
+
 
     private fun setUpRecyclerView() {
         mAdapter = WeatherAdapter(ArrayList<WeatherModel>())
-        recyclerViewWeather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerViewWeather.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         recyclerViewWeather.adapter = mAdapter
 
-    }
-
-    override fun showWeather(weather: WeatherModel) {
-//        hideProgress()
     }
 
     override fun showError(error: String?) {
@@ -58,4 +62,5 @@ class MainActivity : BaseActivity<WeatherContract.View, WeatherPresenter>(), Wea
         recyclerViewWeather.visibility = View.VISIBLE
         progress_bar.visibility = View.GONE
     }
+
 }

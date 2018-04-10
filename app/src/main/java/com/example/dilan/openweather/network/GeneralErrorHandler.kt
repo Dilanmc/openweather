@@ -2,7 +2,7 @@ package com.example.dilan.openweather.network
 
 import android.support.annotation.StringRes
 import android.text.TextUtils
-import com.example.dilan.openweather.Base.BaseView
+import com.example.dilan.openweather.ui.Base.BaseContract
 import com.example.dilan.openweather.R
 import retrofit2.adapter.rxjava.HttpException
 import rx.functions.Action1
@@ -15,13 +15,13 @@ import java.net.UnknownHostException
 /**
  * Created by dilan on 4/9/18.
  */
-class GeneralErrorHandler(view: BaseView? = null,
+class GeneralErrorHandler(contract: BaseContract? = null,
                           private val mShowError: Boolean = false,
                           val onFailure: (Throwable, ErrorBody?, Boolean) -> Unit): Action1<Throwable> {
-    private val mViewReference: WeakReference<BaseView>
+    private val mContractReference: WeakReference<BaseContract>
 
     init {
-        mViewReference = WeakReference<BaseView>(view)
+        mContractReference = WeakReference<BaseContract>(contract)
     }
 
     override fun call(throwable: Throwable) {
@@ -54,23 +54,23 @@ class GeneralErrorHandler(view: BaseView? = null,
 
     private fun showErrorIfRequired(@StringRes strResId: Int) {
         if (mShowError) {
-            mViewReference.get()?.showError(strResId)
+            mContractReference.get()?.showError(strResId)
         }
     }
 
     private fun showErrorIfRequired(error: String) {
         if (mShowError && !TextUtils.isEmpty(error)) {
-            mViewReference.get()?.showError(error)
+            mContractReference.get()?.showError(error)
         }
     }
 
     private fun showMessage(@StringRes strResId: Int) {
-        mViewReference.get()?.showMessage(strResId)
+        mContractReference.get()?.showMessage(strResId)
     }
 
     private fun showMessage(error: String) {
         if (error.isNotEmpty()) {
-            mViewReference.get()?.showError(error)
+            mContractReference.get()?.showError(error)
         }
     }
 }

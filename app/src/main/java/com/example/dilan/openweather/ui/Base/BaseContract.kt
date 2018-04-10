@@ -1,10 +1,10 @@
-package com.example.dilan.openweather.Base
+package com.example.dilan.openweather.ui.Base
 
 import android.content.Context
 import android.support.annotation.StringRes
 
 
-interface BaseView {
+interface BaseContract {
 
     fun getContext(): Context
 
@@ -15,4 +15,5 @@ interface BaseView {
     fun showMessage(@StringRes srtResId: Int)
 
     fun showMessage(message: String)
+
 }

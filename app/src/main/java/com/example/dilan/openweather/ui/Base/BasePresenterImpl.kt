@@ -1,7 +1,7 @@
-package com.example.dilan.openweather.Base
+package com.example.dilan.openweather.ui.Base
 
 
-open class BasePresenterImpl<V : BaseView> : BasePresenter<V> {
+open class BasePresenterImpl<V : BaseContract> : BasePresenter<V> {
 
     protected var mView: V? = null
 

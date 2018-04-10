@@ -1,15 +1,14 @@
-package com.example.dilan.openweather.flow.weather_today
+package com.example.dilan.openweather.ui.weather_list
+
 
 import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.dilan.openweather.LayoutContainer
-
-
 import com.example.dilan.openweather.R
-import com.example.dilan.openweather.Utils.Icon
+import com.example.dilan.openweather.utils.LayoutContainer
+import com.example.dilan.openweather.utils.getIcon
 import com.example.dilan.openweather.model.WeatherModel
 import kotlinx.android.synthetic.main.item_weather.view.*
 
@@ -34,14 +33,15 @@ class WeatherAdapter(private val weathers: MutableList<WeatherModel>) : Recycler
         fun bindData(weatherModel: WeatherModel) {
             with(weatherModel) {
                 containerView.date.text = weatherModel.dt_txt
-                containerView.tempMax.text =  String.format("%.2f", weatherModel.main.temp_max)+ " ℃"
-                containerView.tempMin.text =  String.format("%.2f", weatherModel.main.temp_min)+ " ℃"
+                containerView.tempMax.text = String.format("%.2f", weatherModel.main.temp_max) + " ℃"
+                containerView.tempMin.text = String.format("%.2f", weatherModel.main.temp_min) + " ℃"
                 containerView.weather.text = weatherModel.weather[0].description
-                Icon.getIcon(weatherModel.weather[0].description,containerView.icon_weather)
+                getIcon(weatherModel.weather[0].description, containerView.icon_weather)
             }
 
         }
     }
+
     fun addWeather(newWeather: List<WeatherModel>) {
         weathers.addAll(newWeather)
     }
